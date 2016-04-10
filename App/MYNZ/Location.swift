@@ -16,11 +16,18 @@ class Location: NSObject, CLLocationManagerDelegate {
 
 	static let sharedInstance = Location()
 
-	func getLocation(handler: ((loc: CLLocation) -> ())) {
+  func getLocation(handler: ((loc: CLLocation!, error:NSError!) -> ())) {
 		requestLocation()
+		if let location = locationManager.location {
 
-		lastLocation = locationManager.location!
-		handler(loc: locationManager.location!)
+      lastLocation = location
+			handler(loc: location,error: nil)
+		}
+    else
+    {
+      let error = NSError(domain: "No location available", code: 1, userInfo: nil)
+      handler(loc: nil,error: error)
+    }
 	}
 	func requestLocation() {
 
@@ -34,22 +41,24 @@ class Location: NSObject, CLLocationManagerDelegate {
 		}
 	}
 
-	func handleCurrentLocation() {
+	func explodeCheck() {
 
 		let currentLoc = locationManager.location!
 		for trap in TrapManager.sharedInstance.traps
 		{
 			let distance = currentLoc.distanceFromLocation(trap.location)
-			print(Int(distance))
 			if distance < 10 {
 				print("BOOM")
+        trap.remove()
+				// After exploded, download all traps again
+				TrapManager.sharedInstance.downloadTraps()
 			}
 		}
 	}
 	@objc func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
 		// Updating locationManager.location for getLocation()
-		locationManager = manager
-		handleCurrentLocation()
+    locationManager = manager
+		explodeCheck()
 	}
 }

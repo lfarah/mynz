@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import Parse
 
 class Trap: AnyObject {
 
@@ -18,10 +19,24 @@ class Trap: AnyObject {
 	var location: CLLocation
 	var type: TrapType
 	var userId: String
-
-	init(location: CLLocation, type: TrapType, userId: String) {
+  var objectId: String
+  
+  init(location: CLLocation, type: TrapType, userId: String, objectId: String) {
 		self.location = location
 		self.type = type
 		self.userId = userId
+    self.objectId = objectId
 	}
+  
+  func remove() {
+    let query = PFQuery(className: "Mine")
+    query.whereKey("objectId", equalTo: self.objectId)
+    query.findObjectsInBackgroundWithBlock { (objects, error) in
+      
+      if error == nil {
+        let obj = objects?.first
+        obj?.deleteInBackground()
+      }
+    }
+  }
 }

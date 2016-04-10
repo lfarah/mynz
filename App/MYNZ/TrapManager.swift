@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 class TrapManager: AnyObject {
-
+  
 	var traps: [Trap] = []
 	static let sharedInstance = TrapManager()
 
@@ -31,7 +31,7 @@ class TrapManager: AnyObject {
 						let geo = obj["location"] as! PFGeoPoint
 						let loc = CLLocation(latitude: geo.latitude, longitude: geo.longitude)
 
-						let trap = Trap(location: loc, type: .Mine, userId: "")
+						let trap = Trap(location: loc, type: .Mine, userId: "",objectId: obj.objectId!)
 						self.traps.append(trap)
 					}
 				}
