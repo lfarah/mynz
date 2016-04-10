@@ -45,6 +45,11 @@ class Location: NSObject, CLLocationManagerDelegate {
 
 		// Updating locationManager.location for getLocation()
     locationManager = manager
+    
+    if locations.first?.distanceFromLocation(lastLocation!) > 10 {
+    NSNotificationCenter.defaultCenter().postNotificationName("updateMap", object: nil)
+    }
+
 		TrapManager.sharedInstance.explodeCheck()
 	}
 }

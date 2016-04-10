@@ -40,6 +40,14 @@ class TrapManager: AnyObject {
 			}
 		}
 	}
+  
+  func alert() {
+    let alert = UIAlertController(title: "Booom", message: "You got Exploded!", preferredStyle: .Alert)
+    let okAction = UIAlertAction(title: "OK", style:UIAlertActionStyle.Cancel , handler: nil)
+    
+    alert.addAction(okAction)
+    UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+  }
 
   // Checks if user got exploded - distance from bomb less than 10m
 	func explodeCheck() {
@@ -49,6 +57,7 @@ class TrapManager: AnyObject {
 				let distance = currentLoc.distanceFromLocation(trap.location)
 				if distance < 10 {
 					print("BOOM")
+          alert()
 					trap.remove()
 
           // After exploded, download all traps again

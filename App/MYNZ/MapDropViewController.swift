@@ -17,6 +17,8 @@ class MapDropViewController: UIViewController {
 		super.viewDidLoad()
 
 		updateMapLocation()
+    
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateMapLocation) , name: "updateMap", object: nil)
 	}
 
 	func saveTrap() {
@@ -28,7 +30,6 @@ class MapDropViewController: UIViewController {
 
 	func updateMapLocation() {
 		Location.sharedInstance.getLocation { (loc, error) in
-
 			if error == nil {
 				let center = CLLocationCoordinate2D(latitude: loc.coordinate.latitude, longitude: loc.coordinate.longitude)
 				let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001))
@@ -44,14 +45,6 @@ class MapDropViewController: UIViewController {
 				print(error)
 			}
 		}
-	}
-
-	func alert() {
-		let alert = UIAlertController(title: "Booom", message: "You got Exploded!", preferredStyle: .Alert)
-    let okAction = UIAlertAction(title: "OK", style:UIAlertActionStyle.Destructive , handler: nil)
-    
-    alert.addAction(okAction)
-		self.presentViewController(alert, animated: true, completion: nil)
 	}
 
 	@IBAction func butLocation(sender: AnyObject) {

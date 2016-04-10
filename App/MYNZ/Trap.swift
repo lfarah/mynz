@@ -28,6 +28,7 @@ class Trap: AnyObject {
     self.objectId = objectId
 	}
   
+  // When bomb explodes user, bomb is deleted
   func remove() {
     let query = PFQuery(className: "Mine")
     query.whereKey("objectId", equalTo: self.objectId)
