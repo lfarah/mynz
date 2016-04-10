@@ -11,14 +11,15 @@ import Parse
 
 class TrapManager: AnyObject {
 
-  //MARK: - Variables
-  
+	// MARK: - Variables
+
 	var traps: [Trap] = []
 	static let sharedInstance = TrapManager()
+	var lastTimeExploded = NSDate(timeIntervalSince1970: 0)
+  
+	// MARK: - Methods
 
-  //MARK: - Methods
-
-  //Downloading all traps from Parse to [Trap] array
+	// Downloading all traps from Parse to [Trap] array
 	func downloadTraps() {
 
 		let query = PFQuery(className: "Mine")
@@ -32,9 +33,9 @@ class TrapManager: AnyObject {
 					self.traps.removeAll()
 
 					for obj in objs {
-            if let geo = obj["location"] as? PFGeoPoint, userId = obj["userId"] as? String {
-              
-              //Converting PFGeopointo to CLLocation
+						if let geo = obj["location"] as? PFGeoPoint, userId = obj["userId"] as? String {
+
+							// Converting PFGeopointo to CLLocation
 							let loc = CLLocation(latitude: geo.latitude, longitude: geo.longitude)
 
 							let trap = Trap(location: loc, type: .Mine, userId: userId, objectId: obj.objectId!)
@@ -53,22 +54,28 @@ class TrapManager: AnyObject {
 		let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil)
 
 		alert.addAction(okAction)
-		UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+		if UIApplication.sharedApplication().keyWindow?.rootViewController?.presentedViewController == nil {
+			UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+		}
 	}
 
 	// Checks if user got exploded - distance from bomb less than 10m
 	func explodeCheck() {
+    
+    let interval = lastTimeExploded.timeIntervalSinceNow
+		if abs(interval) > 60 {
+			let currentLoc = Location.sharedInstance.locationManager.location!
+			for trap in traps {
+				let distance = currentLoc.distanceFromLocation(trap.location)
+				if distance < 10 {
+					print("BOOM")
+					alert()
+					trap.remove()
 
-		let currentLoc = Location.sharedInstance.locationManager.location!
-		for trap in traps {
-			let distance = currentLoc.distanceFromLocation(trap.location)
-			if distance < 10 {
-				print("BOOM")
-				alert()
-				trap.remove()
-
-				// After exploded, download all traps again
-				downloadTraps()
+          lastTimeExploded = NSDate(timeIntervalSinceNow: 0)
+					// After exploded, download all traps again
+					downloadTraps()
+				}
 			}
 		}
 	}

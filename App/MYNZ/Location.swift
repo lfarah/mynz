@@ -46,23 +46,25 @@ class Location: NSObject, CLLocationManagerDelegate {
 		}
 	}
 
-  func getCity(handler:((city: String) -> ())) {
+	func getCity(handler: ((city: String) -> ())) {
 		let geoCoder = CLGeocoder()
 
 		if let loc = lastLocation {
 			let location = CLLocation(latitude: loc.coordinate.latitude, longitude: loc.coordinate.longitude)
 			geoCoder.reverseGeocodeLocation(location) {
-        (placemarks, error) -> Void in
-        
-        let placeArray = placemarks as [CLPlacemark]!
-        var placeMark: CLPlacemark!
-        placeMark = placeArray?[0]
+				(placemarks, error) -> Void in
 
-				if let city = placeMark.addressDictionary?["City"] as? NSString {
-					handler(city: city as String)
-        } else {
-          handler(city: "")
-        }
+				let placeArray = placemarks as [CLPlacemark]!
+				var placeMark: CLPlacemark!
+				placeMark = placeArray?[0]
+
+				if placeMark != nil {
+					if let city = placeMark.addressDictionary!["City"] {
+						handler(city: "\(city)")
+					} else {
+						handler(city: "")
+					}
+				}
 			}
 		}
 	}
@@ -72,11 +74,11 @@ class Location: NSObject, CLLocationManagerDelegate {
 	@objc func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
 		// Updating locationManager.location for getLocation()
-		locationManager = manager
-
 		// Sending NSNotification for MapDropViewController to update it's MapView
-		if locations.first?.distanceFromLocation(lastLocation!) > 10 {
-			NSNotificationCenter.defaultCenter().postNotificationName("updateMap", object: nil)
+		if lastLocation != nil {
+			if locations.first!.distanceFromLocation(lastLocation!) > 10 {
+				NSNotificationCenter.defaultCenter().postNotificationName("updateMap", object: nil)
+			}
 		}
 
 		TrapManager.sharedInstance.explodeCheck()
