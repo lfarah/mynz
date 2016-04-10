@@ -48,6 +48,9 @@ class MapDropViewController: UIViewController {
 
 	func alert() {
 		let alert = UIAlertController(title: "Booom", message: "You got Exploded!", preferredStyle: .Alert)
+    let okAction = UIAlertAction(title: "OK", style:UIAlertActionStyle.Destructive , handler: nil)
+    
+    alert.addAction(okAction)
 		self.presentViewController(alert, animated: true, completion: nil)
 	}
 

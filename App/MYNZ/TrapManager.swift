@@ -35,18 +35,17 @@ class TrapManager: AnyObject {
 						self.traps.append(trap)
 					}
 				}
-			}
-			else {
+			} else {
 				print(error)
 			}
 		}
 	}
 
+  // Checks if user got exploded - distance from bomb less than 10m
 	func explodeCheck() {
 
 			let currentLoc = Location.sharedInstance.locationManager.location!
-			for trap in traps
-			{
+			for trap in traps {
 				let distance = currentLoc.distanceFromLocation(trap.location)
 				if distance < 10 {
 					print("BOOM")
