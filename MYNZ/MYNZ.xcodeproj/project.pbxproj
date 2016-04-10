@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		C2F19E731CB869F600943873 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F19E721CB869F600943873 /* AppDelegate.swift */; };
-		C2F19E751CB869F600943873 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F19E741CB869F600943873 /* ViewController.swift */; };
 		C2F19E781CB869F600943873 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2F19E761CB869F600943873 /* Main.storyboard */; };
 		C2F19E7A1CB869F600943873 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2F19E791CB869F600943873 /* Assets.xcassets */; };
 		C2F19E7D1CB869F600943873 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2F19E7B1CB869F600943873 /* LaunchScreen.storyboard */; };
 		C2F19E881CB869F600943873 /* MYNZTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F19E871CB869F600943873 /* MYNZTests.swift */; };
 		C2F19E931CB869F700943873 /* MYNZUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F19E921CB869F700943873 /* MYNZUITests.swift */; };
+		C2F1C4751CB9C4590091419D /* MapDropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F1C4741CB9C4590091419D /* MapDropViewController.swift */; };
+		C2F1C4771CB9C4F70091419D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F1C4761CB9C4F70091419D /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,6 @@
 /* Begin PBXFileReference section */
 		C2F19E6F1CB869F600943873 /* MYNZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MYNZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F19E721CB869F600943873 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C2F19E741CB869F600943873 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C2F19E771CB869F600943873 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C2F19E791CB869F600943873 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2F19E7C1CB869F600943873 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +47,8 @@
 		C2F19E8E1CB869F700943873 /* MYNZUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MYNZUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F19E921CB869F700943873 /* MYNZUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYNZUITests.swift; sourceTree = "<group>"; };
 		C2F19E941CB869F700943873 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2F1C4741CB9C4590091419D /* MapDropViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDropViewController.swift; sourceTree = "<group>"; };
+		C2F1C4761CB9C4F70091419D /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +100,9 @@
 			isa = PBXGroup;
 			children = (
 				C2F19E721CB869F600943873 /* AppDelegate.swift */,
-				C2F19E741CB869F600943873 /* ViewController.swift */,
 				C2F19E761CB869F600943873 /* Main.storyboard */,
+				C2F1C4741CB9C4590091419D /* MapDropViewController.swift */,
+				C2F1C4761CB9C4F70091419D /* Location.swift */,
 				C2F19E791CB869F600943873 /* Assets.xcassets */,
 				C2F19E7B1CB869F600943873 /* LaunchScreen.storyboard */,
 				C2F19E7E1CB869F600943873 /* Info.plist */,
@@ -256,8 +259,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2F19E751CB869F600943873 /* ViewController.swift in Sources */,
+				C2F1C4751CB9C4590091419D /* MapDropViewController.swift in Sources */,
 				C2F19E731CB869F600943873 /* AppDelegate.swift in Sources */,
+				C2F1C4771CB9C4F70091419D /* Location.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +486,7 @@
 				C2F19E991CB869F700943873 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C2F19E9A1CB869F700943873 /* Build configuration list for PBXNativeTarget "MYNZTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +495,7 @@
 				C2F19E9C1CB869F700943873 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C2F19E9D1CB869F700943873 /* Build configuration list for PBXNativeTarget "MYNZUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +504,7 @@
 				C2F19E9F1CB869F700943873 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
