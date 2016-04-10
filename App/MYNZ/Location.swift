@@ -46,8 +46,7 @@ class Location: NSObject, CLLocationManagerDelegate {
 		}
 	}
 
-  func getCity(handler:((city:String) -> ()))
-	{
+  func getCity(handler:((city: String) -> ())) {
 		let geoCoder = CLGeocoder()
 
 		if let loc = lastLocation {
