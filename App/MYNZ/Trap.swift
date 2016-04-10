@@ -34,10 +34,10 @@ class Trap: AnyObject {
     query.whereKey("objectId", equalTo: self.objectId)
     query.findObjectsInBackgroundWithBlock { (objects, error) in
       
-      if error == nil {
-        let obj = objects?.first
-        obj?.deleteInBackground()
-      }
+      if error == nil && objects?.count > 0  {
+				let obj = objects?.first
+				obj?.deleteInBackground()
+			}
     }
   }
 }
