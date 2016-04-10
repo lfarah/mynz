@@ -24,3 +24,13 @@ and then:
 ``` ruby
 pod install
 ```
+
+## SwiftLint
+We're also using [Swiftlint](https://github.com/realm/SwiftLint) to ensure our code is always the neatest and Swiftiest possible, so if you don't have it installed yet, run the following lines
+``` ruby
+brew install swiftlint
+```
+and then:
+``` ruby
+swiftlint lint
+```
