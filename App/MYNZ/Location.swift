@@ -12,14 +12,14 @@ import Parse
 
 class Location: NSObject, CLLocationManagerDelegate {
 	var locationManager = CLLocationManager()
-  var lastLocation: CLLocation?
-  
+	var lastLocation: CLLocation?
+
 	static let sharedInstance = Location()
 
 	func getLocation(handler: ((loc: CLLocation) -> ())) {
 		requestLocation()
 
-    lastLocation = locationManager.location!
+		lastLocation = locationManager.location!
 		handler(loc: locationManager.location!)
 	}
 	func requestLocation() {
@@ -29,19 +29,27 @@ class Location: NSObject, CLLocationManagerDelegate {
 
 		if CLLocationManager.locationServicesEnabled() {
 			locationManager.delegate = self
-			locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+			locationManager.desiredAccuracy = kCLLocationAccuracyBest
 			locationManager.startUpdatingLocation()
 		}
 	}
-  
-  func handleCurrentLocation()
-  {
-    
-  }
+
+	func handleCurrentLocation() {
+
+		let currentLoc = locationManager.location!
+		for trap in TrapManager.sharedInstance.traps
+		{
+			let distance = currentLoc.distanceFromLocation(trap.location)
+			print(Int(distance))
+			if distance < 10 {
+				print("BOOM")
+			}
+		}
+	}
 	@objc func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
 		// Updating locationManager.location for getLocation()
 		locationManager = manager
-    handleCurrentLocation()
+		handleCurrentLocation()
 	}
 }

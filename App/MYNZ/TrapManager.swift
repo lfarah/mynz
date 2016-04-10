@@ -15,7 +15,7 @@ class TrapManager: AnyObject {
 	static let sharedInstance = TrapManager()
 
 	func downloadTraps() {
-
+    
 		let query = PFQuery(className: "Mine")
 		let loc = Location.sharedInstance.lastLocation
 		query.whereKey("location", nearGeoPoint: PFGeoPoint(location: loc))
@@ -24,6 +24,9 @@ class TrapManager: AnyObject {
 			if error == nil {
 				if let objs = arr
 				{
+          //Removing all traps before downloading new ones
+          self.traps.removeAll()
+          
 					for obj in objs {
 						let geo = obj["location"] as! PFGeoPoint
 						let loc = CLLocation(latitude: geo.latitude, longitude: geo.longitude)
