@@ -34,3 +34,10 @@ and then:
 ``` ruby
 swiftlint lint
 ```
+
+## Networking
+Traps are downloaded on the following circumstances: 
+- When app launches: ```didFinishLaunchingWithOptions()```
+- When app goes to background: ```applicationDidEnterBackground()```
+- When app becomes active again: ```applicationDidBecomeActive()```
+- When user is exploded by a trap: ```explodeCheck()```
