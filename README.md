@@ -4,7 +4,7 @@ Mynz is an Augmented Reality game where you drop virtual mines in the real world
 ![minepin](https://cloud.githubusercontent.com/assets/6511079/14408938/ea4d36ee-febc-11e5-99ef-42c8db7dadda.png)
 
 # Goal
-Your goal is to win points by **deploying traps** and explode your friends
+Your goal is to win points by **deploying traps** and exploding your friends
 
 # Rules
 
