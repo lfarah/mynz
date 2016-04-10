@@ -18,7 +18,7 @@ class MapDropViewController: UIViewController {
 
 		updateMapLocation()
     
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateMapLocation) , name: "updateMap", object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateMapLocation), name: "updateMap", object: nil)
 	}
 
 	func saveTrap() {
@@ -55,8 +55,7 @@ class MapDropViewController: UIViewController {
 	}
 }
 
-extension MapDropViewController: MKMapViewDelegate
-{
+extension MapDropViewController: MKMapViewDelegate {
 //  func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
 //    let renderer = MKTileOverlayRenderer(overlay:overlay)
 //    return renderer

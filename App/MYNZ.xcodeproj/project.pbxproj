@@ -171,6 +171,7 @@
 				C2F19E6D1CB869F600943873 /* Resources */,
 				3C47347095893843585128CD /* Embed Pods Frameworks */,
 				1F9E755CB4A09EA53ED524C3 /* Copy Pods Resources */,
+				C27DA0461CBA3FCC002E4CA5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -317,6 +318,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MYNZ/Pods-MYNZ-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		C27DA0461CBA3FCC002E4CA5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		E874A30E5F83D4697BA7EC02 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

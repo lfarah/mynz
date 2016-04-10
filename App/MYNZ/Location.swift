@@ -16,17 +16,15 @@ class Location: NSObject, CLLocationManagerDelegate {
 
 	static let sharedInstance = Location()
 
-  func getLocation(handler: ((loc: CLLocation!, error:NSError!) -> ())) {
+  func getLocation(handler: ((loc: CLLocation!, error: NSError!) -> ())) {
 		requestLocation()
 		if let location = locationManager.location {
 
       lastLocation = location
-			handler(loc: location,error: nil)
-		}
-    else
-    {
+			handler(loc: location, error: nil)
+		} else {
       let error = NSError(domain: "No location available", code: 1, userInfo: nil)
-      handler(loc: nil,error: error)
+      handler(loc: nil, error: error)
     }
 	}
 	func requestLocation() {
