@@ -12,6 +12,7 @@ import Parse
 
 class Trap: AnyObject {
 
+  //MARK: - Variables
 	enum TrapType {
 		case Mine
 	}
@@ -20,6 +21,8 @@ class Trap: AnyObject {
 	var type: TrapType
 	var userId: String
   var objectId: String
+  
+  //MARK: - Methods
   
   init(location: CLLocation, type: TrapType, userId: String, objectId: String) {
 		self.location = location

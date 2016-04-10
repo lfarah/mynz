@@ -12,13 +12,17 @@ import Parse
 
 class MapDropViewController: UIViewController {
 
+	// MARK: - Variables
+	// MARK: Outlets
 	@IBOutlet weak var map: MKMapView!
+
+	// MARK: - Methods
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		updateMapLocation()
-    
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateMapLocation), name: "updateMap", object: nil)
+
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateMapLocation), name: "updateMap", object: nil)
 	}
 
 	func saveTrap() {
@@ -38,6 +42,7 @@ class MapDropViewController: UIViewController {
 					self.map.setRegion(region, animated: true)
 				}
 
+				// Dark overlay not yet implemented
 				// let overlay = MKTileOverlay(URLTemplate: "http://www.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png")
 				// overlay.canReplaceMapContent = true
 				// self.map.addOverlay(overlay)
@@ -55,6 +60,7 @@ class MapDropViewController: UIViewController {
 	}
 }
 
+//MARK: - MKMapViewDelegate
 extension MapDropViewController: MKMapViewDelegate {
 //  func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
 //    let renderer = MKTileOverlayRenderer(overlay:overlay)

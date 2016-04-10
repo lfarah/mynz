@@ -11,9 +11,14 @@ import Parse
 
 class TrapManager: AnyObject {
 
+  //MARK: - Variables
+  
 	var traps: [Trap] = []
 	static let sharedInstance = TrapManager()
 
+  //MARK: - Methods
+
+  //Downloading all traps from Parse to [Trap] array
 	func downloadTraps() {
 
 		let query = PFQuery(className: "Mine")
@@ -28,6 +33,8 @@ class TrapManager: AnyObject {
 
 					for obj in objs {
             if let geo = obj["location"] as? PFGeoPoint, userId = obj["userId"] as? String {
+              
+              //Converting PFGeopointo to CLLocation
 							let loc = CLLocation(latitude: geo.latitude, longitude: geo.longitude)
 
 							let trap = Trap(location: loc, type: .Mine, userId: userId, objectId: obj.objectId!)

@@ -11,11 +11,16 @@ import CoreLocation
 import Parse
 
 class Location: NSObject, CLLocationManagerDelegate {
+  
+  //MARK: - Variables
 	var locationManager = CLLocationManager()
 	var lastLocation: CLLocation?
 
 	static let sharedInstance = Location()
 
+  //MARK: - Methods
+
+  //Returning user's current location
   func getLocation(handler: ((loc: CLLocation!, error: NSError!) -> ())) {
 		requestLocation()
 		if let location = locationManager.location {
@@ -27,6 +32,8 @@ class Location: NSObject, CLLocationManagerDelegate {
       handler(loc: nil, error: error)
     }
 	}
+  
+  // Requesting user's permission for Location Services access
 	func requestLocation() {
 
 		// For use in foreground
@@ -39,11 +46,14 @@ class Location: NSObject, CLLocationManagerDelegate {
 		}
 	}
 
+  //MARK: - CLLocationManagerDelegate
+  
 	@objc func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
 		// Updating locationManager.location for getLocation()
     locationManager = manager
     
+    // Sending NSNotification for MapDropViewController to update it's MapView
     if locations.first?.distanceFromLocation(lastLocation!) > 10 {
     NSNotificationCenter.defaultCenter().postNotificationName("updateMap", object: nil)
     }
