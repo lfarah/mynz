@@ -25,7 +25,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="5Xl-sz-8KR"/>
                                 </connections>
                             </mapView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="DropPin" translatesAutoresizingMaskIntoConstraints="NO" id="iXj-GE-US8">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DropPin" translatesAutoresizingMaskIntoConstraints="NO" id="iXj-GE-US8">
                                 <rect key="frame" x="200" y="200" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="iXj-GE-US8" secondAttribute="height" multiplier="1:1" id="nBy-3P-yBb"/>
@@ -45,12 +45,20 @@
                                     <action selector="butLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NEG-P6-f3h"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DwZ-Xy-JkG">
+                                <rect key="frame" x="66" y="483.5" width="31" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="meV-bq-x1k" secondAttribute="trailing" constant="-20" id="2ZT-Vo-Mm5"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="meV-bq-x1k" secondAttribute="bottom" id="4i7-tP-ihc"/>
                             <constraint firstItem="meV-bq-x1k" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="7dd-5T-Bhe"/>
+                            <constraint firstItem="DwZ-Xy-JkG" firstAttribute="leading" secondItem="8Pb-mF-lbA" secondAttribute="trailing" constant="8" id="9b6-JQ-aCw"/>
+                            <constraint firstItem="DwZ-Xy-JkG" firstAttribute="centerY" secondItem="8Pb-mF-lbA" secondAttribute="centerY" id="Hh0-bH-XSa"/>
                             <constraint firstItem="8Pb-mF-lbA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="9" id="KnG-zm-bSc"/>
                             <constraint firstItem="rvV-7N-WEk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Nfa-qI-cwz"/>
                             <constraint firstItem="iXj-GE-US8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qn6-US-zz7"/>
@@ -62,6 +70,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lblCity" destination="DwZ-Xy-JkG" id="ry3-8s-rjM"/>
                         <outlet property="map" destination="meV-bq-x1k" id="b02-Ag-HGz"/>
                     </connections>
                 </viewController>

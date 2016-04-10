@@ -15,6 +15,7 @@ class MapDropViewController: UIViewController {
 	// MARK: - Variables
 	// MARK: Outlets
 	@IBOutlet weak var map: MKMapView!
+  @IBOutlet weak var lblCity: UILabel!
 
 	// MARK: - Methods
 	override func viewDidLoad() {
@@ -23,6 +24,7 @@ class MapDropViewController: UIViewController {
 		updateMapLocation()
 
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateMapLocation), name: "updateMap", object: nil)
+    
 	}
 
 	func saveTrap() {
@@ -50,6 +52,10 @@ class MapDropViewController: UIViewController {
 				print(error)
 			}
 		}
+    
+    Location.sharedInstance.getCity { (city) in
+      self.lblCity.text = city
+    }
 	}
 
 	@IBAction func butLocation(sender: AnyObject) {
