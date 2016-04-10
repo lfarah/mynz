@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Map Drop View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MapDropViewController" customModule="MYNZ" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meV-bq-x1k">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="5Xl-sz-8KR"/>
+                                </connections>
+                            </mapView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="DropPin" translatesAutoresizingMaskIntoConstraints="NO" id="iXj-GE-US8">
+                                <rect key="frame" x="200" y="200" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="iXj-GE-US8" secondAttribute="height" multiplier="1:1" id="nBy-3P-yBb"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvV-7N-WEk">
+                                <rect key="frame" x="0.0" y="503" width="600" height="77"/>
+                                <state key="normal" title="=" image="ButDeploy"/>
+                                <connections>
+                                    <action selector="butDeploy:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K2S-j2-dsC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Pb-mF-lbA">
+                                <rect key="frame" x="29" y="476" width="29" height="29"/>
+                                <state key="normal" image="map-arrow-icon"/>
+                                <connections>
+                                    <action selector="butLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NEG-P6-f3h"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="meV-bq-x1k" secondAttribute="trailing" constant="-20" id="2ZT-Vo-Mm5"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="meV-bq-x1k" secondAttribute="bottom" id="4i7-tP-ihc"/>
+                            <constraint firstItem="meV-bq-x1k" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="7dd-5T-Bhe"/>
+                            <constraint firstItem="8Pb-mF-lbA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="9" id="KnG-zm-bSc"/>
+                            <constraint firstItem="rvV-7N-WEk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Nfa-qI-cwz"/>
+                            <constraint firstItem="iXj-GE-US8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qn6-US-zz7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rvV-7N-WEk" secondAttribute="trailing" constant="-20" id="eDN-Yc-60c"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rvV-7N-WEk" secondAttribute="bottom" constant="20" id="gCY-gw-bF3"/>
+                            <constraint firstItem="meV-bq-x1k" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="hvF-Mz-SCP"/>
+                            <constraint firstItem="rvV-7N-WEk" firstAttribute="top" secondItem="8Pb-mF-lbA" secondAttribute="bottom" constant="-2" id="pzz-cV-4Cx"/>
+                            <constraint firstItem="iXj-GE-US8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="wEp-qv-SBz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="map" destination="meV-bq-x1k" id="b02-Ag-HGz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="325" y="385"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ButDeploy" width="394" height="77"/>
+        <image name="DropPin" width="200" height="200"/>
+        <image name="map-arrow-icon" width="29" height="29"/>
+    </resources>
+</document>
