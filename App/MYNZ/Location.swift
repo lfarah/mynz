@@ -41,24 +41,10 @@ class Location: NSObject, CLLocationManagerDelegate {
 		}
 	}
 
-	func explodeCheck() {
-
-		let currentLoc = locationManager.location!
-		for trap in TrapManager.sharedInstance.traps
-		{
-			let distance = currentLoc.distanceFromLocation(trap.location)
-			if distance < 10 {
-				print("BOOM")
-        trap.remove()
-				// After exploded, download all traps again
-				TrapManager.sharedInstance.downloadTraps()
-			}
-		}
-	}
 	@objc func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
 		// Updating locationManager.location for getLocation()
     locationManager = manager
-		explodeCheck()
+		TrapManager.sharedInstance.explodeCheck()
 	}
 }
