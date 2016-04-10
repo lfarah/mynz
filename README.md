@@ -14,3 +14,13 @@ Your goal is to win points by **deploying traps** and exploding your friends
 # Contributing
 - Wanna contribute? **Awesome!** Start by our [Issues page](https://github.com/lfarah/mynz/issues) to see what we wanna see in the next version.
 - Something wrong? We're definitely not perfect, so [create an issue here](https://github.com/lfarah/mynz/issues) and we'll do our best to fix it as quick as possible :smile:
+
+## CocoaPods
+We're using CocoaPods on our project, so if you wanna run our Xcode project, be sure to open your **Terminal** and run the folowing lines:
+``` ruby
+gem install cocoapods
+```
+and then:
+``` ruby
+pod install
+```
