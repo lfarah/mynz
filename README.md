@@ -1,5 +1,5 @@
 # mynz
-Mynz is an Augmented Reality game where you drop virtual mines in the real world and explode your Friends. **100% Open source**
+Mynz is an Augmented Reality game where you drop virtual mines in the real world and explode your Friends. **100% Open source, 100% Swift** :large_orange:diamond:
 
 ![minepin](https://cloud.githubusercontent.com/assets/6511079/14408938/ea4d36ee-febc-11e5-99ef-42c8db7dadda.png)
 
