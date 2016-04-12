@@ -26,17 +26,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// [Optional] Track statistics around application opens.
 		PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
 
-    //If user already logged in
+		// Push Notifications
+		let userNotificationTypes: UIUserNotificationType = [.Alert, .Badge, .Sound]
+
+		let settings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
+		application.registerUserNotificationSettings(settings)
+		application.registerForRemoteNotifications()
+
+		// If user already logged in
 		if PFUser.currentUser() != nil {
 			let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
 			let homeViewController = mainStoryboard.instantiateViewControllerWithIdentifier("mainVC")
 			window!.rootViewController = homeViewController
-      
-      // Downloading traps from Parse
-      TrapManager.sharedInstance.downloadTraps()
+
+			// Downloading traps from Parse
+			TrapManager.sharedInstance.downloadTraps()
 		}
 
 		return true
+	}
+
+	// Push Notifications
+	func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+		// Store the deviceToken in the current Installation and save it to Parse
+		let installation = PFInstallation.currentInstallation()
+		installation.setDeviceTokenFromData(deviceToken)
+		installation.saveInBackground()
 	}
 
 	func applicationWillResignActive(application: UIApplication) {

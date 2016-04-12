@@ -233,6 +233,12 @@
 				TargetAttributes = {
 					C2F19E6E1CB869F600943873 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = NN3TD9EB8G;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					C2F19E821CB869F600943873 = {
 						CreatedOnToolsVersion = 7.3;
@@ -505,10 +511,12 @@
 			baseConfigurationReference = 8A1A15FEFB9353E266F8D202 /* Pods-MYNZ.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lucas Farah (QS43HRK3R3)";
 				INFOPLIST_FILE = MYNZ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = farah.lucas.MYNZ;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mynzapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e06e8d40-3a51-47f3-9b11-c7103e7d9864";
 			};
 			name = Debug;
 		};
@@ -517,10 +525,12 @@
 			baseConfigurationReference = F6D2BFDC1A3DEA1B7BA2F396 /* Pods-MYNZ.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Lucas Farah (NN3TD9EB8G)";
 				INFOPLIST_FILE = MYNZ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = farah.lucas.MYNZ;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mynzapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ebd5d50c-97d0-4620-a237-c15010114450";
 			};
 			name = Release;
 		};
