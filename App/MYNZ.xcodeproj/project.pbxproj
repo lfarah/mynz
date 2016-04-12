@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1D56FC3012700ACD79A0CC17 /* Pods_MYNZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7731D7CA245CF3545DD9D19D /* Pods_MYNZ.framework */; };
+		C27D1C361CBCD3310074617B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27D1C351CBCD3310074617B /* LoginViewController.swift */; };
 		C2F19E731CB869F600943873 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F19E721CB869F600943873 /* AppDelegate.swift */; };
 		C2F19E781CB869F600943873 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2F19E761CB869F600943873 /* Main.storyboard */; };
 		C2F19E7A1CB869F600943873 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2F19E791CB869F600943873 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		7731D7CA245CF3545DD9D19D /* Pods_MYNZ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MYNZ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A1A15FEFB9353E266F8D202 /* Pods-MYNZ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MYNZ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MYNZ/Pods-MYNZ.debug.xcconfig"; sourceTree = "<group>"; };
+		C27D1C351CBCD3310074617B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C2F19E6F1CB869F600943873 /* MYNZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MYNZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F19E721CB869F600943873 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2F19E771CB869F600943873 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			children = (
 				C2F19E721CB869F600943873 /* AppDelegate.swift */,
 				C2F19E761CB869F600943873 /* Main.storyboard */,
+				C27D1C351CBCD3310074617B /* LoginViewController.swift */,
 				C2F1C4741CB9C4590091419D /* MapDropViewController.swift */,
 				C2F1C4761CB9C4F70091419D /* Location.swift */,
 				C2F1C4781CB9F1590091419D /* Trap.swift */,
@@ -354,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C27D1C361CBCD3310074617B /* LoginViewController.swift in Sources */,
 				C2F1C4791CB9F1590091419D /* Trap.swift in Sources */,
 				C2F1C47B1CB9F36D0091419D /* TrapManager.swift in Sources */,
 				C2F1C4751CB9C4590091419D /* MapDropViewController.swift in Sources */,

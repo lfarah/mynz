@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QpU-9g-2bG">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,10 +7,87 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="A5i-3v-yME">
+            <objects>
+                <viewController id="QpU-9g-2bG" customClass="LoginViewController" customModule="MYNZ" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rbe-KJ-OmH"/>
+                        <viewControllerLayoutGuide type="bottom" id="Tdt-fl-008"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="n0B-Dm-k9M">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MagentaMapFull Copy" translatesAutoresizingMaskIntoConstraints="NO" id="FBS-bE-fGn">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bqi-d7-GBQ">
+                                <rect key="frame" x="20" y="276" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Twu-OH-oIC">
+                                <rect key="frame" x="20" y="201" width="54" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EfV-Ei-WdB">
+                                <rect key="frame" x="282" y="324" width="38" height="30"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="butLogin:" destination="QpU-9g-2bG" eventType="touchUpInside" id="r2W-eH-Cci"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uhG-Oa-Wcy">
+                                <rect key="frame" x="247" y="362" width="107" height="30"/>
+                                <state key="normal" title="Create Account"/>
+                                <connections>
+                                    <action selector="butCreateAccount:" destination="QpU-9g-2bG" eventType="touchUpInside" id="TvY-Lc-Kue"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ay5-4R-Hw7">
+                                <rect key="frame" x="20" y="230" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Twu-OH-oIC" firstAttribute="top" secondItem="Rbe-KJ-OmH" secondAttribute="bottom" constant="181" id="2th-gc-fN7"/>
+                            <constraint firstItem="EfV-Ei-WdB" firstAttribute="centerX" secondItem="n0B-Dm-k9M" secondAttribute="centerX" id="5QX-0p-cau"/>
+                            <constraint firstItem="ay5-4R-Hw7" firstAttribute="leading" secondItem="n0B-Dm-k9M" secondAttribute="leadingMargin" id="9gt-Ju-MJc"/>
+                            <constraint firstItem="ay5-4R-Hw7" firstAttribute="top" secondItem="Twu-OH-oIC" secondAttribute="bottom" constant="8" id="CDx-B2-q1n"/>
+                            <constraint firstItem="bqi-d7-GBQ" firstAttribute="centerX" secondItem="n0B-Dm-k9M" secondAttribute="centerX" id="DNT-48-GEH"/>
+                            <constraint firstItem="bqi-d7-GBQ" firstAttribute="top" secondItem="ay5-4R-Hw7" secondAttribute="bottom" constant="16" id="J1K-0i-Uje"/>
+                            <constraint firstItem="bqi-d7-GBQ" firstAttribute="trailing" secondItem="n0B-Dm-k9M" secondAttribute="trailingMargin" id="P0g-kO-WpT"/>
+                            <constraint firstItem="Tdt-fl-008" firstAttribute="top" secondItem="FBS-bE-fGn" secondAttribute="bottom" id="QKh-f4-TBK"/>
+                            <constraint firstItem="Twu-OH-oIC" firstAttribute="leading" secondItem="n0B-Dm-k9M" secondAttribute="leadingMargin" id="SHk-2R-7fP"/>
+                            <constraint firstItem="ay5-4R-Hw7" firstAttribute="trailing" secondItem="n0B-Dm-k9M" secondAttribute="trailingMargin" id="SRV-ay-mT0"/>
+                            <constraint firstItem="EfV-Ei-WdB" firstAttribute="top" secondItem="bqi-d7-GBQ" secondAttribute="bottom" constant="18" id="Y9s-B5-LhK"/>
+                            <constraint firstItem="FBS-bE-fGn" firstAttribute="leading" secondItem="n0B-Dm-k9M" secondAttribute="leadingMargin" constant="-20" id="chm-V0-lgZ"/>
+                            <constraint firstItem="uhG-Oa-Wcy" firstAttribute="centerX" secondItem="n0B-Dm-k9M" secondAttribute="centerX" id="edU-6w-itw"/>
+                            <constraint firstItem="uhG-Oa-Wcy" firstAttribute="top" secondItem="EfV-Ei-WdB" secondAttribute="bottom" constant="8" id="gzt-3f-Fas"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FBS-bE-fGn" secondAttribute="trailing" constant="-20" id="i1U-Tw-9Eu"/>
+                            <constraint firstItem="FBS-bE-fGn" firstAttribute="top" secondItem="n0B-Dm-k9M" secondAttribute="topMargin" id="xhu-we-16X"/>
+                            <constraint firstItem="bqi-d7-GBQ" firstAttribute="leading" secondItem="n0B-Dm-k9M" secondAttribute="leadingMargin" id="zb6-kB-3mJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="txtLogin" destination="ay5-4R-Hw7" id="3go-GZ-C5Y"/>
+                        <outlet property="txtPassword" destination="bqi-d7-GBQ" id="1nq-JH-vZv"/>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="login" id="ZSO-qy-KFG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9jW-lG-IQo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-353" y="390"/>
+        </scene>
         <!--Map Drop View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MapDropViewController" customModule="MYNZ" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="MapDropViewController" customModule="MYNZ" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -82,6 +159,7 @@
     <resources>
         <image name="ButDeploy" width="394" height="77"/>
         <image name="DropPin" width="200" height="200"/>
+        <image name="MagentaMapFull Copy" width="414" height="736"/>
         <image name="map-arrow-icon" width="29" height="29"/>
     </resources>
 </document>
