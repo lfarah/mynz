@@ -29,7 +29,7 @@ class MapDropViewController: UIViewController {
 
 	func saveTrap() {
 		let trapObj = PFObject(className: "Mine")
-		trapObj["location"] = PFGeoPoint(location: Location.sharedInstance.lastLocation)
+		trapObj["location"] = PFGeoPoint(location: Location.sharedInstance.locationManager.location)
 		trapObj["userId"] = "ioAAgU1VDc"
 		trapObj.saveInBackground()
 	}

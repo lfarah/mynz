@@ -23,7 +23,7 @@ class TrapManager: AnyObject {
 	func downloadTraps() {
 
 		let query = PFQuery(className: "Mine")
-		let loc = Location.sharedInstance.lastLocation
+		let loc = Location.sharedInstance.locationManager.location
 		query.whereKey("location", nearGeoPoint: PFGeoPoint(location: loc))
 		query.findObjectsInBackgroundWithBlock { (arr, error) in
 
@@ -49,16 +49,6 @@ class TrapManager: AnyObject {
 		}
 	}
 
-	func alert() {
-		let alert = UIAlertController(title: "Booom", message: "You got Exploded!", preferredStyle: .Alert)
-		let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil)
-
-		alert.addAction(okAction)
-		if UIApplication.sharedApplication().keyWindow?.rootViewController?.presentedViewController == nil {
-			UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
-		}
-	}
-
 	// Checks if user got exploded - distance from bomb less than 10m
 	func explodeCheck() {
     
@@ -69,8 +59,9 @@ class TrapManager: AnyObject {
 				let distance = currentLoc.distanceFromLocation(trap.location)
 				if distance < 10 {
 					print("BOOM")
-					alert()
-					trap.remove()
+          
+          NotificationManager.sharedInstance.alertExploded()
+          trap.remove()
 
           lastTimeExploded = NSDate(timeIntervalSinceNow: 0)
 					// After exploded, download all traps again

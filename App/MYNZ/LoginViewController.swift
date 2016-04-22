@@ -33,9 +33,10 @@ class LoginViewController: UIViewController {
 			if error == nil {
 				self.performSegueWithIdentifier("login", sender: nil)
 			} else {
-				print(error)
+				NotificationManager.sharedInstance.alertError(error!.localizedDescription)
 			}
 		}
+    
 	}
 
 	@IBAction func butCreateAccount(sender: AnyObject) {
@@ -49,7 +50,7 @@ class LoginViewController: UIViewController {
 			if error == nil {
 				self.performSegueWithIdentifier("login", sender: nil)
 			} else {
-				print(error)
+        NotificationManager.sharedInstance.alertError(error!.localizedDescription)
 			}
 		}
 	}

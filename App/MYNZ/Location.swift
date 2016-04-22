@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import Parse
 
-class Location: NSObject, CLLocationManagerDelegate {
+class Location: NSObject {
 
 	// MARK: - Variables
 	var locationManager = CLLocationManager()
@@ -22,7 +22,9 @@ class Location: NSObject, CLLocationManagerDelegate {
 
 	// Returning user's current location
 	func getLocation(handler: ((loc: CLLocation!, error: NSError!) -> ())) {
+
 		requestLocation()
+
 		if let location = locationManager.location {
 
 			lastLocation = location
@@ -37,13 +39,19 @@ class Location: NSObject, CLLocationManagerDelegate {
 	func requestLocation() {
 
 		// For use in foreground
-		self.locationManager.requestWhenInUseAuthorization()
+		self.locationManager.requestAlwaysAuthorization()
 
 		if CLLocationManager.locationServicesEnabled() {
-			locationManager.delegate = self
-			locationManager.desiredAccuracy = kCLLocationAccuracyBest
-			locationManager.startUpdatingLocation()
+			startLocation()
 		}
+	}
+
+	func startLocation() {
+
+		locationManager.delegate = self
+		locationManager.desiredAccuracy = kCLLocationAccuracyBest
+		locationManager.startUpdatingLocation()
+		locationManager.distanceFilter = 10
 	}
 
 	func getCity(handler: ((city: String) -> ())) {
@@ -68,19 +76,36 @@ class Location: NSObject, CLLocationManagerDelegate {
 			}
 		}
 	}
+}
 
-	// MARK: - CLLocationManagerDelegate
+// MARK: - CLLocationManagerDelegate
+extension Location: CLLocationManagerDelegate {
 
 	@objc func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
 		// Updating locationManager.location for getLocation()
 		// Sending NSNotification for MapDropViewController to update it's MapView
-		if lastLocation != nil {
-			if locations.first!.distanceFromLocation(lastLocation!) > 10 {
-				NSNotificationCenter.defaultCenter().postNotificationName("updateMap", object: nil)
-			}
-		}
-
+    print(locations.first?.coordinate.latitude)
+		NSNotificationCenter.defaultCenter().postNotificationName("updateMap", object: nil)
 		TrapManager.sharedInstance.explodeCheck()
+	}
+
+	func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+		switch status {
+		case .NotDetermined:
+			locationManager.requestAlwaysAuthorization()
+			break
+		case .AuthorizedWhenInUse:
+			break
+		case .AuthorizedAlways:
+			startLocation()
+			break
+		case .Denied:
+			// user denied your app access to Location Services, but can grant access from Settings.app
+			NotificationManager.sharedInstance.showLocationSettingAlert()
+			break
+		default:
+			break
+		}
 	}
 }

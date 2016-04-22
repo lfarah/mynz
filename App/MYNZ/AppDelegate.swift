@@ -65,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		// Downloading traps from Parse
 		TrapManager.sharedInstance.downloadTraps()
+    Location.sharedInstance.requestLocation()
 	}
 
 	func applicationWillEnterForeground(application: UIApplication) {
